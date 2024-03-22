@@ -9,23 +9,24 @@ function Navbar() {
 {/* Eerste navbar */}
 <nav className="navbar bg-body-tertiary navbar-expand-lg eerste-navbar fixed-top">
   <div className="container-fluid">
-    {/* Zoekbalk voor grote schermen */}
-    <div className="container-zoekbalk grote-zoeker">
-      <div className="row">
-        <div className="col-11">
-          <form className="d-flex">
-            <div className="input-group">
-              <input className="form-control" type="search" placeholder="Zoek..." aria-label="Zoeken" />
-              <button className="btn grote-zoek-knop" type="submit">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">
-                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                </svg>
-              </button>
-            </div>
-          </form>
+
+ {/* Zoekbalk voor grote schermen */}
+<div className="container-zoekbalk grote-zoeker d-lg-block d-none">
+  <div className="row">
+    <div className="col-11">
+      <form className="d-flex">
+        <div className="input-group">
+          <input className="form-control" type="search" placeholder="Zoek..." aria-label="Zoeken" />
+          <button className="btn grote-zoek-knop" type="submit">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">
+              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+            </svg>
+          </button>
         </div>
-      </div>
+      </form>
     </div>
+  </div>
+</div>
 
     {/* Eerste navbar en hamburger */}
     <button className="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
@@ -45,7 +46,7 @@ function Navbar() {
       <div className="offcanvas-body">
         <ul className="navbar-nav justify-content-end flex-grow-1 pe-3 d-lg-none">
           {/* Alle links */}
-          <a className="nav-item" href="index.php">
+          <a className="nav-item" href="/">
             <h5 className="my-2 h4 nav-link active" aria-current="page" style={{ color: "#0047AB" }}>Home</h5>
           </a>
           <a className="nav-item" href="nieuw.php">
@@ -112,10 +113,10 @@ function Navbar() {
   </div>
 </nav>
 
-{/* Zoekbalk voor kleine schermen */}
-<div className="container-zoekbalk d-lg-none kleine-zoeker">
+{/* Zoekbalk voor kleine en medium schermen */}
+<div className="container-zoekbalk kleine-zoeker d-md-block d-lg-none">
   <div className="row">
-    <div className="col-11">
+    <div className="col-12">
       <form className="d-flex">
         <div className="input-group">
           <input className="form-control" type="search" placeholder="Zoek..." aria-label="Zoeken" />
@@ -129,7 +130,6 @@ function Navbar() {
     </div>
   </div>
 </div>
-
 {/* Tweede navbar voor desktop */}
 <nav className="navbar navbar-expand-lg fixed-top bg-custom d-lg-block d-none tweede-navbar" id="navbar">
   <div className="container-fluid">
@@ -145,7 +145,7 @@ function Navbar() {
         <ul className="navbar-links">
           {/* Alle links */}
           <li className="nav-item">
-            <a className="nav-link" href="index.php">Home</a>
+            <a className="nav-link" href="/">Home</a>
           </li>
           <li className="nav-item">
             <a className="nav-link" href="nieuw.php">Nieuw</a>
@@ -242,7 +242,6 @@ function Navbar() {
   </div>
 </nav>
 
-{/* Derde navbar voor kleine schermen */}
 
 </div>
 
