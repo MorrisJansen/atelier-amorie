@@ -1,5 +1,7 @@
 import React from 'react';
-import '../stijlen/App.css'
+import '../stijlen/navbar.css'
+
+
 
 
 function Navbar() {
@@ -45,25 +47,91 @@ function Navbar() {
       {/* Binnenkant hamburger */}
       <div className="offcanvas-body">
         <ul className="navbar-nav justify-content-end flex-grow-1 pe-3 d-lg-none">
-          {/* Alle links */}
+
           <a className="nav-item" href="/">
             <h5 className="my-2 h4 nav-link active" aria-current="page" style={{ color: "#0047AB" }}>Home</h5>
           </a>
           <a className="nav-item" href="nieuw.php">
             <h5 className="my-2 h4 nav-link" style={{ color: "#0047AB" }}>Nieuw</h5>
           </a>
-          <a className="nav-item" href="sieraden.php">
-            <h5 className="my-2 h4 nav-link" style={{ color: "#0047AB" }}>Sieraden</h5>
-          </a>
-          <a className="nav-item" href="accessoires.php">
-            <h5 className="my-2 h4 nav-link" style={{ color: "#0047AB" }}>Accessoires</h5>
-          </a>
+          <div className="nav-item dropdown">
+            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Sieraden
+            </a>
+            <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+            <ul className="navbar-nav mr-auto">
+            <li className="nav-item dropdown">
+              <a className="nav-link dropdown-toggle" href="#" id="oorbellenDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Oorbellen
+              </a>
+              <ul className="dropdown-menu submenu oorbellen" aria-labelledby="oorbellenDropdown">
+                {/* Dropdown-items hier toevoegen */}
+                <li><a className="dropdown-item" href="oorbellen.php">Alle oorbellen</a></li>
+                <li><a className="dropdown-item" href="oorbellen.php?cat=hoops">Hoops</a></li>
+                <li><a className="dropdown-item" href="oorbellen.php?cat=oorringen-en-hangers">Oorringen & hangers</a></li>
+                <li><a className="dropdown-item" href="oorbellen.php?cat=oorknopjes">Oorknopjes</a></li>
+                <li><a className="dropdown-item" href="oorbellen.php?cat=doortrek-oorbellen">Doortrek oorbellen</a></li>
+                <li><a className="dropdown-item" href="oorbellen.php?cat=ear-cuffs">Ear Cuffs</a></li>
+                <li><a className="dropdown-item" href="oorbellen.php?cat=piercings">Piercings</a></li>
+                <li><a className="dropdown-item" href="oorbellen.php?cat=sets">Sets</a></li>
+                <li><a className="dropdown-item" href="oorbellen.php?cat=mix-en-match">Mix & match</a></li>
+              </ul>
+            </li>
+          </ul>              <li><a className="dropdown-item" href="#">Kettingen</a></li>
+              <li><a className="dropdown-item" href="#">Ringen</a></li>
+              <li><a className="dropdown-item" href="#">Armbanden</a></li>
+              <li><a className="dropdown-item" href="#">Enkelbandjes</a></li>
+
+            </ul>
+          </div>
+          <div className="nav-item dropdown">
+            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Collecties
+            </a>
+            <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a className="dropdown-item" href="sieraden.php">Alle Collecties</a></li>
+              <li><a className="dropdown-item" href="armbanden.php">Tell me your name</a></li>
+              <li><a className="dropdown-item" href="enkelbandjes.php">Year Of Birth</a></li>
+              <li><a className="dropdown-item" href="oorbellen.php">Mixed Symbols</a></li>
+              <li><a className="dropdown-item" href="ringen.php">Your favorite destination</a></li>
+              <li><a className="dropdown-item" href=".php">Classy Pearl</a></li>
+              <li><a className="dropdown-item" href=".php">You name it</a></li>
+              <li><a className="dropdown-item" href=".php">Kind words</a></li>
+              <li><a className="dropdown-item" href=".php">Asymmetrical symbols</a></li>
+              <li><a className="dropdown-item" href=".php">Shine on with zirconia</a></li>
+              <li><a className="dropdown-item" href=".php">Shine on with zirconia stud</a></li>
+              <li><a className="dropdown-item" href=".php">Daisy & Butterfly</a></li>
+              <li><a className="dropdown-item" href=".php">Fresh Vibes</a></li>
+              <li><a className="dropdown-item" href=".php">(Sea) Animals</a></li>
+              <li><a className="dropdown-item" href=".php">Galaxy</a></li>
+              <li><a className="dropdown-item" href=".php">Stones</a></li>
+              <li><a className="dropdown-item" href=".php">Pastel</a></li>
+              <li><a className="dropdown-item" href=".php">Over the Moon</a></li>
+              <li><a className="dropdown-item" href=".php">Lovely Summer</a></li>
+              <li><a className="dropdown-item" href=".php">Wild Ones</a></li>
+              <li><a className="dropdown-item" href=".php">Postcards</a></li>
+              <li><a className="dropdown-item" href=".php">Stylish Simplicity</a></li>
+              <li><a className="dropdown-item" href=".php">Smiley's</a></li>
+            </ul>
+          </div>
+          <div className="nav-item dropdown">
+            <a className="nav-link dropdown-toggle" href="#" id="accessoiresDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Accessoires
+            </a>
+            <ul className="dropdown-menu" aria-labelledby="accessoiresDropdown">
+              {/* Dropdown-items hier toevoegen */}
+              <li><a className="dropdown-item" href="sieraden.php">Alle Accessoires</a></li>
+              <li><a className="dropdown-item" href="armbanden.php">Haaraccessoires</a></li>
+              <li><a className="dropdown-item" href="enkelbandjes.php">Telefoon Accessoires</a></li>
+              <li><a className="dropdown-item" href="oorbellen.php">Schipperspetten &amp; Baretten</a></li>
+              <li><a className="dropdown-item" href="ringen.php">Tassen &amp; Portemonnees</a></li>
+            </ul>
+          </div>
+
           <a className="nav-item" href="cadeauwinkel.php">
             <h5 className="my-2 h4 nav-link" style={{ color: "#0047AB" }}>Cadeauwinkel</h5>
           </a>
-          <a className="nav-item" href="collecties.php">
-            <h5 className="my-2 h4 nav-link" style={{ color: "#0047AB" }}>Collecties</h5>
-          </a>
+
           <a className="nav-item" href="persoonlijk.php">
             <h5 className="my-2 h4 nav-link" style={{ color: "#0047AB" }}>Persoonlijk</h5>
           </a>
@@ -143,7 +211,8 @@ function Navbar() {
       </div>
       <div className="offcanvas-body">
         <ul className="navbar-links">
-          {/* Alle links */}
+
+          
           <li className="nav-item">
             <a className="nav-link" href="/">Home</a>
           </li>
@@ -202,13 +271,13 @@ function Navbar() {
           <li className="nav-item">
             <a className="nav-link" href="cadeauwinkel.php">Cadeauwinkel</a>
           </li>
-          {/* Collecties dropdown */}
-          <li className="nav-item dropdown">
-            <a className="nav-link dropdown-toggle" href="#" id="collecties-submenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Collecties
-            </a>
-            <ul className="dropdown-menu" aria-labelledby="collecties-submenu">
-            <li><a className="dropdown-item" href="sieraden.php">Alle Collecties</a></li>
+{/* Collecties dropdown */}
+<li className="nav-item dropdown">
+  <a className="nav-link dropdown-toggle" href="#" id="collecties-submenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Collecties
+  </a>
+  <ul className="dropdown-menu multi-column" aria-labelledby="collecties-submenu">
+    <li><a className="dropdown-item" href="sieraden.php">Alle Collecties</a></li>
     <li><a className="dropdown-item" href="armbanden.php">Tell me your name</a></li>
     <li><a className="dropdown-item" href="enkelbandjes.php">Year Of Birth</a></li>
     <li><a className="dropdown-item" href="oorbellen.php">Mixed Symbols</a></li>
@@ -231,8 +300,13 @@ function Navbar() {
     <li><a className="dropdown-item" href=".php">Postcards</a></li>
     <li><a className="dropdown-item" href=".php">Stylish Simplicity</a></li>
     <li><a className="dropdown-item" href=".php">Smiley's</a></li>
-            </ul>
-          </li>
+  </ul>
+</li>
+
+
+
+
+
           <li className="nav-item">
             <a className="nav-link" href="persoonlijk.php">Persoonlijk</a>
           </li>

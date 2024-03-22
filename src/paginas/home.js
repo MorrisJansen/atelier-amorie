@@ -3,13 +3,27 @@ import React from 'react';
 function Home() {
   return (
     <div>
+
+
+      {/* Ik heb de alert weggehaald. Hij was niet mooi genoeg, en toen heb ik hem nog lelijker gemaakt :)
+      altijd nog mogelijk om hem weer toe te voegen en mooi te maken.
+      */}
+
       {/* alert */}
-      <div className="alert-container" id="alert-container">
-        <div className="alert alert-primary custom-alert alert-dismissible fade show text-white text-center" role="alert">
-          gratis verzending vanaf €15
-          <button type="button" className="btn-close alert-button" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-      </div>
+
+
+      {/* <div className="alert-container" id="alert-container">
+  <div className="custom-alert" role="alert">
+    <p>    gratis verzending vanaf €15
+</p>
+    <button type="button" className="btn-close alert-button" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+</div> */}
+
+
+
+
+
       
       {/* hero */}
       <div className="container-fluid d-flex align-items-center justify-content-center">
