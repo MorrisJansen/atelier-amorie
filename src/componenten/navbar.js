@@ -34,7 +34,7 @@ function Navbar() {
     <button className="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
-    <a className="navbar-brand d-flex justify-content-center" href="#">
+    <a className="navbar-brand d-flex justify-content-center" href="./Probeersel">
       <img className="navbar-logo" src="../fotos/amorie-logo.png" alt="logo" />
     </a>
 
