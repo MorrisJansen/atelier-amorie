@@ -1,10 +1,47 @@
 import React from 'react';
 import '../stijlen/navbar.css'
+import  { useState } from 'react';
+import { Offcanvas } from 'react-bootstrap';
+
 
 
 
 
 function Navbar() {
+  const handleShowMenu = () => setShowMenu(!showMenu);
+
+  const [showMenu, setShowMenu] = useState(false);
+  const [showSubMenu, setShowSubMenu] = useState(false);
+  const [showSubSubMenu, setShowSubSubMenu] = useState(false);
+  const [showSubSubSubMenu, setShowSubSubSubMenu] = useState(false);
+
+  const handleClose = () => {
+    setShowMenu(false);
+    setShowSubMenu(false);
+    setShowSubSubMenu(false); 
+    setShowSubSubSubMenu(false);
+  };
+
+  // const handleShowMenu = () => setShowMenu(true);
+    // const handleShowMenu = () => setShowMenu(true);
+
+  const handleOpenSubMenu = () => setShowSubMenu(true);
+
+  const handleCloseSubMenu = () => setShowSubMenu(false);
+
+  const handleOpenSubSubMenu = () => setShowSubSubMenu(true);
+
+  const handleCloseSubSubMenu = () => setShowSubSubMenu(false);
+
+  const handleOpenSubSubSubMenu = () => setShowSubSubSubMenu(true);
+
+  const handleCloseSubSubSubMenu = () => setShowSubSubSubMenu(false);
+
+
+
+
+
+
   return (
     <div>
 
@@ -31,9 +68,10 @@ function Navbar() {
 </div>
 
     {/* Eerste navbar en hamburger */}
-    <button className="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-      <span className="navbar-toggler-icon"></span>
-    </button>
+    <button className="navbar-toggler d-lg-none" type="button" onClick={handleShowMenu} aria-label="Toggle navigation">
+  <span className="navbar-toggler-icon"></span>
+</button>
+
     <a className="navbar-brand d-flex justify-content-center" href="./Probeersel">
       <img className="navbar-logo" src="../fotos/amorie-logo.png" alt="logo" />
     </a>
@@ -44,99 +82,127 @@ function Navbar() {
         <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
 
-      {/* Binnenkant hamburger */}
-      <div className="offcanvas-body">
-        <ul className="navbar-nav justify-content-end flex-grow-1 pe-3 d-lg-none">
-
-          <a className="nav-item" href="/">
-            <h5 className="my-2 h4 nav-link active" aria-current="page" style={{ color: "#0047AB" }}>Home</h5>
-          </a>
-          <a className="nav-item" href="nieuw.php">
-            <h5 className="my-2 h4 nav-link" style={{ color: "#0047AB" }}>Nieuw</h5>
-          </a>
-          <div className="nav-item dropdown">
-            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Sieraden
-            </a>
-            <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-            <ul className="navbar-nav mr-auto">
-            <li className="nav-item dropdown">
-              <a className="nav-link dropdown-toggle" href="#" id="oorbellenDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Oorbellen
-              </a>
-              <ul className="dropdown-menu submenu oorbellen" aria-labelledby="oorbellenDropdown">
-                {/* Dropdown-items hier toevoegen */}
-                <li><a className="dropdown-item" href="oorbellen.php">Alle oorbellen</a></li>
-                <li><a className="dropdown-item" href="oorbellen.php?cat=hoops">Hoops</a></li>
-                <li><a className="dropdown-item" href="oorbellen.php?cat=oorringen-en-hangers">Oorringen & hangers</a></li>
-                <li><a className="dropdown-item" href="oorbellen.php?cat=oorknopjes">Oorknopjes</a></li>
-                <li><a className="dropdown-item" href="oorbellen.php?cat=doortrek-oorbellen">Doortrek oorbellen</a></li>
-                <li><a className="dropdown-item" href="oorbellen.php?cat=ear-cuffs">Ear Cuffs</a></li>
-                <li><a className="dropdown-item" href="oorbellen.php?cat=piercings">Piercings</a></li>
-                <li><a className="dropdown-item" href="oorbellen.php?cat=sets">Sets</a></li>
-                <li><a className="dropdown-item" href="oorbellen.php?cat=mix-en-match">Mix & match</a></li>
-              </ul>
-            </li>
-          </ul>              <li><a className="dropdown-item" href="#">Kettingen</a></li>
-              <li><a className="dropdown-item" href="#">Ringen</a></li>
-              <li><a className="dropdown-item" href="#">Armbanden</a></li>
-              <li><a className="dropdown-item" href="#">Enkelbandjes</a></li>
-
-            </ul>
-          </div>
-          <div className="nav-item dropdown">
-            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Collecties
-            </a>
-            <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a className="dropdown-item" href="sieraden.php">Alle Collecties</a></li>
-              <li><a className="dropdown-item" href="armbanden.php">Tell me your name</a></li>
-              <li><a className="dropdown-item" href="enkelbandjes.php">Year Of Birth</a></li>
-              <li><a className="dropdown-item" href="oorbellen.php">Mixed Symbols</a></li>
-              <li><a className="dropdown-item" href="ringen.php">Your favorite destination</a></li>
-              <li><a className="dropdown-item" href=".php">Classy Pearl</a></li>
-              <li><a className="dropdown-item" href=".php">You name it</a></li>
-              <li><a className="dropdown-item" href=".php">Kind words</a></li>
-              <li><a className="dropdown-item" href=".php">Asymmetrical symbols</a></li>
-              <li><a className="dropdown-item" href=".php">Shine on with zirconia</a></li>
-              <li><a className="dropdown-item" href=".php">Shine on with zirconia stud</a></li>
-              <li><a className="dropdown-item" href=".php">Daisy & Butterfly</a></li>
-              <li><a className="dropdown-item" href=".php">Fresh Vibes</a></li>
-              <li><a className="dropdown-item" href=".php">(Sea) Animals</a></li>
-              <li><a className="dropdown-item" href=".php">Galaxy</a></li>
-              <li><a className="dropdown-item" href=".php">Stones</a></li>
-              <li><a className="dropdown-item" href=".php">Pastel</a></li>
-              <li><a className="dropdown-item" href=".php">Over the Moon</a></li>
-              <li><a className="dropdown-item" href=".php">Lovely Summer</a></li>
-              <li><a className="dropdown-item" href=".php">Wild Ones</a></li>
-              <li><a className="dropdown-item" href=".php">Postcards</a></li>
-              <li><a className="dropdown-item" href=".php">Stylish Simplicity</a></li>
-              <li><a className="dropdown-item" href=".php">Smiley's</a></li>
-            </ul>
-          </div>
-          <div className="nav-item dropdown">
-            <a className="nav-link dropdown-toggle" href="#" id="accessoiresDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Accessoires
-            </a>
-            <ul className="dropdown-menu" aria-labelledby="accessoiresDropdown">
-              {/* Dropdown-items hier toevoegen */}
-              <li><a className="dropdown-item" href="sieraden.php">Alle Accessoires</a></li>
-              <li><a className="dropdown-item" href="armbanden.php">Haaraccessoires</a></li>
-              <li><a className="dropdown-item" href="enkelbandjes.php">Telefoon Accessoires</a></li>
-              <li><a className="dropdown-item" href="oorbellen.php">Schipperspetten &amp; Baretten</a></li>
-              <li><a className="dropdown-item" href="ringen.php">Tassen &amp; Portemonnees</a></li>
-            </ul>
-          </div>
-
-          <a className="nav-item" href="cadeauwinkel.php">
-            <h5 className="my-2 h4 nav-link" style={{ color: "#0047AB" }}>Cadeauwinkel</h5>
-          </a>
-
-          <a className="nav-item" href="persoonlijk.php">
-            <h5 className="my-2 h4 nav-link" style={{ color: "#0047AB" }}>Persoonlijk</h5>
-          </a>
+       {/* Binnenkant hamburger */}
+       <Offcanvas show={showMenu} onHide={handleClose}>
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title>Menu</Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          <ul>
+            <li>
+              
+              <button onClick={handleOpenSubMenu} style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
+                Sieraden
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                </svg>
+              </button>
+              <Offcanvas show={showSubMenu} onHide={handleCloseSubMenu} placement="start">
+                <Offcanvas.Header closeButton>
+                  <Offcanvas.Title onClick={handleCloseSubMenu} style={{ cursor: 'pointer' }}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                    </svg>
+                    Sieraden
+                  </Offcanvas.Title>
+                </Offcanvas.Header>
+                <Offcanvas.Body>
+                  <ul>
+                    <li>
+                      <button onClick={handleOpenSubSubMenu} style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
+                        Oorbellen
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                          <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                      </button>
+                      <Offcanvas show={showSubSubMenu} onHide={handleCloseSubSubMenu} placement="start">
+                        <Offcanvas.Header closeButton>
+                          <Offcanvas.Title onClick={handleCloseSubSubMenu} style={{ cursor: 'pointer' }}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                              <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                            </svg>
+                            Oorbellen
+                          </Offcanvas.Title>
+                        </Offcanvas.Header>
+                        <Offcanvas.Body>
+                          <ul>
+                            <li>Alle Oorbellen</li>
+                            <li>Hoops</li>
+                            <li>Oorringen & Hangers</li>
+                            <li>Oorknopjes</li>
+                            <li>Doortrek Oorbellen</li>
+                            <li>Ear Cuffs</li>
+                            <li>Piercings</li>
+                            <li>Sets</li>
+                            <li>Mix & Match</li>
+                          </ul>
+                        </Offcanvas.Body>
+                      </Offcanvas>
+                    </li>
+                    <li>
+                    <button onClick={handleOpenSubSubMenu} style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
+    Kettingen
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+    </svg>
+</button>
+<Offcanvas show={showSubSubMenu} onHide={handleCloseSubSubMenu} placement="start">
+    <Offcanvas.Header closeButton>
+        <Offcanvas.Title onClick={handleCloseSubSubMenu} style={{ cursor: 'pointer' }}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+            </svg>
+            Kettingen
+        </Offcanvas.Title>
+    </Offcanvas.Header>
+    <Offcanvas.Body>
+        <ul>
+            <li>Alle Kettingen</li>
+            <li>Meerdere Lagen</li>
         </ul>
-      </div>
+    </Offcanvas.Body>
+</Offcanvas>
+                    </li>
+                    <li>Ringen</li>
+                    <li>Armbanden</li>
+                    <li>
+                      <button onClick={handleOpenSubSubSubMenu} style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
+                        Ringen
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                          <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                      </button>
+
+                      <Offcanvas show={showSubSubSubMenu} onHide={handleCloseSubSubSubMenu} placement="start">
+                        <Offcanvas.Header closeButton>
+                          <Offcanvas.Title onClick={handleCloseSubSubSubMenu} style={{ cursor: 'pointer' }}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                              <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                            </svg>
+                            Ringen
+                          </Offcanvas.Title>
+                        </Offcanvas.Header>
+                        <Offcanvas.Body>
+                          <ul>
+                            <li>Alle Ringen</li>
+                            <li>Zegelringen</li>
+                            <li>One Size Ringen</li>
+                            <li>Vintage Look</li>
+                          </ul>
+                        </Offcanvas.Body>
+                      </Offcanvas>
+                    </li>
+                    <li>Armbanden</li>
+                    <li>Enkelbandjes</li>
+                  </ul>
+                </Offcanvas.Body>
+              </Offcanvas>
+            </li>
+            <li>Menu Item 2</li>
+            <li>Menu Item 3</li>
+          </ul>
+        </Offcanvas.Body>
+      </Offcanvas>    
     </div>
 
     {/* Aan de rechterkant groot scherm logo links */}
