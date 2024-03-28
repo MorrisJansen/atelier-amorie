@@ -17,6 +17,8 @@ function Navbar() {
   const [oorbellenStatus, setOorbellenStatus] = useState(false);
   const [kettingenStatus, setKettingenStatus] = useState(false);
   const [ringenStatus, setRingenStatus] = useState(false);
+  const [accesoiresStatus, setAccesoiresStatus] = useState(false);
+
   
   const handleClose = () => {
     setMenuStatus(false);
@@ -24,6 +26,7 @@ function Navbar() {
     setOorbellenStatus(false);
     setKettingenStatus(false);
     setRingenStatus(false);
+    setAccesoiresStatus(false);
   };
 
   const openSieradenMenu = () => setSieradenStatus(true);
@@ -37,6 +40,9 @@ function Navbar() {
   
   const openKettingenMenu = () => setKettingenStatus(true);
   const sluitKettingenMenu = () => setKettingenStatus(false);
+
+  const openAccesoiresMenu = () => setAccesoiresStatus(true);
+  const sluitAccesoiresMenu = () => setAccesoiresStatus(false);
 
   return (
     <div>
@@ -84,7 +90,20 @@ function Navbar() {
           <Offcanvas.Title>Menu</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
+
+
+
+
+
           <ul>
+
+          <li>Home</li>
+
+
+          <li>Nieuw</li>
+
+
+
             <li>
               
             <button onClick={openSieradenMenu} style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
@@ -203,11 +222,8 @@ function Navbar() {
     </ul>
   </Offcanvas.Body>
 </Offcanvas>
-
-
-
-
   </li>
+
   <li>Armbanden</li>
   <li>Enkelbandjes</li>
 </ul>
@@ -215,8 +231,44 @@ function Navbar() {
                 </Offcanvas.Body>
               </Offcanvas>
             </li>
-            <li>Menu Item 2</li>
-            <li>Menu Item 3</li>
+
+
+
+            
+            <li>
+      <button onClick={openAccesoiresMenu} style={{ background: 'none', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center' }}>
+        <span style={{ marginRight: '8px' }}>Accessoires</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chevron-right" viewBox="0 0 16 16">
+          <path fillRule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+        </svg>
+      </button>
+      <Offcanvas show={accesoiresStatus} onHide={sluitAccesoiresMenu} placement="start">
+        <Offcanvas.Header >
+          <Offcanvas.Title onClick={sluitAccesoiresMenu} style={{ cursor: 'pointer' }}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chevron-left" viewBox="0 0 16 16">
+              <path fillRule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+            </svg>
+            Accessoires
+          </Offcanvas.Title>
+          <button className="btn-close" onClick={handleClose} aria-label="Close"></button>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          <ul>
+            <li>petten</li>
+            <li>Portemonnees</li>
+          </ul>
+        </Offcanvas.Body>
+      </Offcanvas>
+    </li>
+
+
+
+
+
+
+
+            <li>Cadeauwinkel</li>
+            <li>Collecties</li>
           </ul>
         </Offcanvas.Body>
       </Offcanvas>    
@@ -392,10 +444,6 @@ function Navbar() {
 </li>
 
 
-
-          <li className="nav-item">
-            <a className="nav-link" href="persoonlijk.php">Persoonlijk</a>
-          </li>
         </ul>
       </div>
     </div>
