@@ -8,39 +8,35 @@ import { Offcanvas } from 'react-bootstrap';
 
 
 function Navbar() {
-  const handleShowMenu = () => setShowMenu(!showMenu);
 
-  const [showMenu, setShowMenu] = useState(false);
-  const [showSubMenu, setShowSubMenu] = useState(false);
-  const [showSubSubMenu, setShowSubSubMenu] = useState(false);
-  const [showSubSubSubMenu, setShowSubSubSubMenu] = useState(false);
 
+  const handleMenuStatus = () => setMenuStatus(!menuStatus);
+
+  const [menuStatus, setMenuStatus] = useState(false);
+  const [sieradenStatus, setSieradenStatus] = useState(false);
+  const [oorbellenStatus, setOorbellenStatus] = useState(false);
+  const [kettingenStatus, setKettingenStatus] = useState(false);
+  const [ringenStatus, setRingenStatus] = useState(false);
+  
   const handleClose = () => {
-    setShowMenu(false);
-    setShowSubMenu(false);
-    setShowSubSubMenu(false); 
-    setShowSubSubSubMenu(false);
+    setMenuStatus(false);
+    setSieradenStatus(false);
+    setOorbellenStatus(false);
+    setKettingenStatus(false);
+    setRingenStatus(false);
   };
 
-  // const handleShowMenu = () => setShowMenu(true);
-    // const handleShowMenu = () => setShowMenu(true);
-
-  const handleOpenSubMenu = () => setShowSubMenu(true);
-
-  const handleCloseSubMenu = () => setShowSubMenu(false);
-
-  const handleOpenSubSubMenu = () => setShowSubSubMenu(true);
-
-  const handleCloseSubSubMenu = () => setShowSubSubMenu(false);
-
-  const handleOpenSubSubSubMenu = () => setShowSubSubSubMenu(true);
-
-  const handleCloseSubSubSubMenu = () => setShowSubSubSubMenu(false);
-
-
-
-
-
+  const openSieradenMenu = () => setSieradenStatus(true);
+  const sluitSieradenMenu = () => setSieradenStatus(false);
+  
+  const openOorbellenMenu = () => setOorbellenStatus(true);
+  const sluitOorbellenMenu = () => setOorbellenStatus(false);
+  
+  const openRingenMenu = () => setRingenStatus(true);
+  const sluitRingenMenu = () => setRingenStatus(false);
+  
+  const openKettingenMenu = () => setKettingenStatus(true);
+  const sluitKettingenMenu = () => setKettingenStatus(false);
 
   return (
     <div>
@@ -68,7 +64,7 @@ function Navbar() {
 </div>
 
     {/* Eerste navbar en hamburger */}
-    <button className="navbar-toggler d-lg-none" type="button" onClick={handleShowMenu} aria-label="Toggle navigation">
+    <button className="navbar-toggler d-lg-none" type="button" onClick={handleMenuStatus} aria-label="Toggle navigation">
   <span className="navbar-toggler-icon"></span>
 </button>
 
@@ -83,118 +79,139 @@ function Navbar() {
       </div>
 
        {/* Binnenkant hamburger */}
-       <Offcanvas show={showMenu} onHide={handleClose}>
-        <Offcanvas.Header closeButton>
+        <Offcanvas show={menuStatus} onHide={handleClose}>
+        <Offcanvas.Header closeButton onClick={handleClose}>
           <Offcanvas.Title>Menu</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
           <ul>
             <li>
               
-              <button onClick={handleOpenSubMenu} style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
-                Sieraden
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-                </svg>
-              </button>
-              <Offcanvas show={showSubMenu} onHide={handleCloseSubMenu} placement="start">
-                <Offcanvas.Header closeButton>
-                  <Offcanvas.Title onClick={handleCloseSubMenu} style={{ cursor: 'pointer' }}>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
-                      <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
-                    </svg>
-                    Sieraden
-                  </Offcanvas.Title>
-                </Offcanvas.Header>
-                <Offcanvas.Body>
-                  <ul>
-                    <li>
-                      <button onClick={handleOpenSubSubMenu} style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
-                        Oorbellen
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-                          <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-                        </svg>
-                      </button>
-                      <Offcanvas show={showSubSubMenu} onHide={handleCloseSubSubMenu} placement="start">
-                        <Offcanvas.Header closeButton>
-                          <Offcanvas.Title onClick={handleCloseSubSubMenu} style={{ cursor: 'pointer' }}>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
-                              <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
-                            </svg>
-                            Oorbellen
-                          </Offcanvas.Title>
-                        </Offcanvas.Header>
-                        <Offcanvas.Body>
-                          <ul>
-                            <li>Alle Oorbellen</li>
-                            <li>Hoops</li>
-                            <li>Oorringen & Hangers</li>
-                            <li>Oorknopjes</li>
-                            <li>Doortrek Oorbellen</li>
-                            <li>Ear Cuffs</li>
-                            <li>Piercings</li>
-                            <li>Sets</li>
-                            <li>Mix & Match</li>
-                          </ul>
-                        </Offcanvas.Body>
-                      </Offcanvas>
-                    </li>
-                    <li>
-                    <button onClick={handleOpenSubSubMenu} style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
-    Kettingen
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-    </svg>
+            <button onClick={openSieradenMenu} style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
+  Sieraden
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+    <path fillRule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+  </svg>
 </button>
-<Offcanvas show={showSubSubMenu} onHide={handleCloseSubSubMenu} placement="start">
-    <Offcanvas.Header closeButton>
-        <Offcanvas.Title onClick={handleCloseSubSubMenu} style={{ cursor: 'pointer' }}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
-            </svg>
-            Kettingen
-        </Offcanvas.Title>
+<Offcanvas show={sieradenStatus} onHide={sluitSieradenMenu} placement="start">
+  <Offcanvas.Header  >
+    <Offcanvas.Title onClick={sluitSieradenMenu} style={{ cursor: 'pointer' }}>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+        <path fillRule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+      </svg>
+      Sieraden
+    </Offcanvas.Title>
+    <button className="btn-close" onClick={handleClose} aria-label="Close"></button>
+  </Offcanvas.Header>
+
+                <Offcanvas.Body>
+                <ul>
+                <li>
+  <button onClick={openOorbellenMenu} style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
+    Oorbellen
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+      <path fillRule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+    </svg>
+  </button>
+  <Offcanvas show={oorbellenStatus} onHide={sluitOorbellenMenu} placement="start">
+    <Offcanvas.Header>
+      <Offcanvas.Title onClick={sluitOorbellenMenu} style={{ cursor: 'pointer' }}>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+          <path fillRule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+        </svg>
+        Oorbellen
+      </Offcanvas.Title>
+      <button className="btn-close" onClick={handleClose} aria-label="Close"></button>
     </Offcanvas.Header>
     <Offcanvas.Body>
-        <ul>
-            <li>Alle Kettingen</li>
-            <li>Meerdere Lagen</li>
-        </ul>
+      <ul>
+        <li>Alle oorbellen</li>
+        <li>Hoops</li>
+        <li>Oorringen & hangers</li>
+        <li>Oorknopjes</li>
+        <li>Doortrek oorbellen</li>
+        <li>Ear Cuffs</li>
+        <li>Piercings</li>
+        <li>Sets</li>
+        <li>Mix & match</li>
+      </ul>
     </Offcanvas.Body>
-</Offcanvas>
-                    </li>
-                    <li>Ringen</li>
-                    <li>Armbanden</li>
-                    <li>
-                      <button onClick={handleOpenSubSubSubMenu} style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
-                        Ringen
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-                          <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-                        </svg>
-                      </button>
+  </Offcanvas>
+</li>
 
-                      <Offcanvas show={showSubSubSubMenu} onHide={handleCloseSubSubSubMenu} placement="start">
-                        <Offcanvas.Header closeButton>
-                          <Offcanvas.Title onClick={handleCloseSubSubSubMenu} style={{ cursor: 'pointer' }}>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
-                              <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
-                            </svg>
-                            Ringen
-                          </Offcanvas.Title>
-                        </Offcanvas.Header>
-                        <Offcanvas.Body>
-                          <ul>
-                            <li>Alle Ringen</li>
-                            <li>Zegelringen</li>
-                            <li>One Size Ringen</li>
-                            <li>Vintage Look</li>
-                          </ul>
-                        </Offcanvas.Body>
-                      </Offcanvas>
-                    </li>
-                    <li>Armbanden</li>
-                    <li>Enkelbandjes</li>
-                  </ul>
+
+
+
+<li>
+  <button onClick={openKettingenMenu} style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
+    Kettingen
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+      <path fillRule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+    </svg>
+  </button>
+  <Offcanvas show={kettingenStatus} onHide={sluitKettingenMenu} placement="start">
+    <Offcanvas.Header>
+      <Offcanvas.Title onClick={sluitKettingenMenu} style={{ cursor: 'pointer' }}>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+          <path fillRule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+        </svg>
+        Kettingen
+      </Offcanvas.Title>
+      <button className="btn-close" onClick={handleClose} aria-label="Close"></button>
+    </Offcanvas.Header>
+    <Offcanvas.Body>
+      <ul>
+        <li>Alle kettingen</li>
+        <li>Meerdere lagen</li>
+      </ul>
+    </Offcanvas.Body>
+  </Offcanvas>
+</li>
+
+
+
+
+
+
+  <li>
+  <button onClick={openRingenMenu} style={{ background: 'none', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center' }}>
+  <span style={{ marginRight: '8px' }}>Ringen</span>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+    <path fillRule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+  </svg>
+</button>
+
+            
+
+
+<Offcanvas show={ringenStatus} onHide={sluitRingenMenu} placement="start">
+  <Offcanvas.Header >
+    <Offcanvas.Title style={{ cursor: 'pointer' }} onClick={sluitRingenMenu}>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chevron-left" viewBox="0 0 16 16">
+        <path fillRule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+      </svg>
+      Ringen
+    </Offcanvas.Title>
+    <button className="btn-close" onClick={handleClose} aria-label="Close"></button>
+  </Offcanvas.Header>
+  <Offcanvas.Body>
+    <ul>
+      <li>Alle ringen</li>
+      <li>Zegelringen</li>
+      <li>One size ringen</li>
+      <li>Vintage look</li>
+    </ul>
+  </Offcanvas.Body>
+</Offcanvas>
+
+
+
+
+  </li>
+  <li>Armbanden</li>
+  <li>Enkelbandjes</li>
+</ul>
+
                 </Offcanvas.Body>
               </Offcanvas>
             </li>
@@ -204,6 +221,11 @@ function Navbar() {
         </Offcanvas.Body>
       </Offcanvas>    
     </div>
+
+
+
+
+
 
     {/* Aan de rechterkant groot scherm logo links */}
     <div className="d-none d-lg-flex align-items-center">
@@ -368,8 +390,6 @@ function Navbar() {
     <li><a className="dropdown-item" href=".php">Smiley's</a></li>
   </ul>
 </li>
-
-
 
 
 
